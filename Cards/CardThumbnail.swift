@@ -9,10 +9,16 @@ import SwiftUI
 
 struct CardThumbnail: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        RoundedRectangle(cornerRadius: 15)
+            .foregroundColor(.gray)
+            .frame(width: 150, height: 250)
     }
 }
 
-#Preview {
+struct CardThumbnail_Previews: PreviewProvider {
+  static var previews: some View {
     CardThumbnail()
+  }
 }
+
+
