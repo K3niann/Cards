@@ -9,8 +9,8 @@ import SwiftUI
 
 
 struct CardsListView: View {
-    @State private var isPresented = false
     @EnvironmentObject var store: CardStore
+    @State private var selectedCard: Card?
     
     var body: some View {
       ScrollView(showsIndicators: false) {
@@ -18,13 +18,17 @@ struct CardsListView: View {
             ForEach(store.cards) { card in
             CardThumbnail(card: card)
               .onTapGesture {
-                isPresented = true
+                selectedCard = card
               }
           }
         }
       }
-      .fullScreenCover(isPresented: $isPresented) {
-        SingleCardView()
+      .fullScreenCover(item: $selectedCard) { card in
+          if let index = store.index(for: card) {
+           SingleCardView(card: $store.cards[index])
+          } else {
+           fatalError("Unable to locate selected card")
+          }
       }
     }
   }
