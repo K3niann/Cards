@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		37F6A9C92D5EDCA400B88A12 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F6A9C82D5EDCA400B88A12 /* Transform.swift */; };
+		37F6A9CD2D60103C00B88A12 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F6A9CC2D60103C00B88A12 /* Operators.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		37F6A9AA2D5EBF3300B88A12 /* Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37F6A9C82D5EDCA400B88A12 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		37F6A9CC2D60103C00B88A12 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				37F6A9AC2D5EBF3300B88A12 /* Cards */,
+				37F6A9C72D5EDC5800B88A12 /* Model */,
 				37F6A9AB2D5EBF3300B88A12 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +51,15 @@
 				37F6A9AA2D5EBF3300B88A12 /* Cards.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		37F6A9C72D5EDC5800B88A12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37F6A9C82D5EDCA400B88A12 /* Transform.swift */,
+				37F6A9CC2D60103C00B88A12 /* Operators.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F6A9CD2D60103C00B88A12 /* Operators.swift in Sources */,
+				37F6A9C92D5EDCA400B88A12 /* Transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

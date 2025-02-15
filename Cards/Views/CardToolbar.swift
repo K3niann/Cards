@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct CardToolbar: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-#Preview {
-    CardToolbar()
+struct CardToolbar: ViewModifier {
+  @Environment(\.dismiss) var dismiss
+  @Binding var currentModal: ToolbarSelection?
+
+  func body(content: Content) -> some View {
+    content
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button("Done") {
+            dismiss()
+          }
+        }
+        ToolbarItem(placement: .bottomBar) {
+          BottomToolbar(modal: $currentModal)
+        }
+      }
+      .sheet(item: $currentModal) { item in
+        switch item {
+        default:
+          Text(String(describing: item))
+        }
+      }
+  }
 }
