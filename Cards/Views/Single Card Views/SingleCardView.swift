@@ -8,42 +8,28 @@
 import SwiftUI
 
 struct SingleCardView: View {
-  @Environment(\.dismiss) var dismiss
-  @State private var currentModal: ToolbarSelection?
   @Binding var card: Card
-    
-    
-    var content: some View {
-     card.backgroundColor
-    }
-    
+  @State private var currentModal: ToolbarSelection?
 
   var body: some View {
     NavigationStack {
-        CardDetailView(card: $card)
-        
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            Button("Done") {
-              dismiss()
-            }
-          }
-          ToolbarItem(placement: .bottomBar) {
-            BottomToolbar(modal: $currentModal)
-          }
-        }
-        .sheet(item: $currentModal) { item in
-         switch item {
-         default:
-         Text(String(describing: item))
-         }
-        }
+      CardDetailView(card: $card)
+        .modifier(CardToolbar(
+          currentModal: $currentModal,
+          card: $card))
     }
   }
 }
 
 struct SingleCardView_Previews: PreviewProvider {
+  struct SingleCardPreview: View {
+    @EnvironmentObject var store: CardStore
+    var body: some View {
+      SingleCardView(card: $store.cards[0])
+    }
+  }
   static var previews: some View {
-      SingleCardView(card: .constant(initialCards[0]))
+    SingleCardPreview()
+      .environmentObject(CardStore(defaultData: true))
   }
 }

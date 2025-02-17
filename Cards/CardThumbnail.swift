@@ -24,4 +24,3 @@ struct CardThumbnail_Previews: PreviewProvider {
     CardThumbnail(card: initialCards[0])
   }
 }
-

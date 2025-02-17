@@ -21,7 +21,14 @@ extension CardElement {
 struct ImageElement: CardElement {
   let id = UUID()
   var transform = Transform()
-  var image: Image
+  var uiImage: UIImage?
+
+  var image: Image {
+    Image(
+      uiImage: uiImage ??
+        UIImage(named: "error-image") ??
+        UIImage())
+  }
 }
 
 struct TextElement: CardElement {
@@ -31,4 +38,3 @@ struct TextElement: CardElement {
   var textColor = Color.black
   var textFont = "Gill Sans"
 }
-
